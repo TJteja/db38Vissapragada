@@ -12,6 +12,7 @@ useUnifiedTopology: true});
 var db = mongoose.connection; 
 db.on('error', console.error.bind(console, 'MongoDB connection error:')); 
 db.once("open", function(){  console.log("Connection to DB succeeded")}); 
+var Costume = require("./models/costume"); 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
