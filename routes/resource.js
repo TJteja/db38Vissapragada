@@ -4,29 +4,29 @@ var router = express.Router();
  
 // Require controller modules. 
 var api_controller = require('../controllers/api'); 
-var costume_controller = require('../controllers/costume'); 
+var dog_controller = require('../controllers/dog'); 
  
 /// API ROUTE /// 
  
 // GET resources base. 
-router.get('/resource', api_controller.api); 
+router.get('/', api_controller.api); 
  
-/// COSTUME ROUTES /// 
+/// dog ROUTES /// 
  
-// POST request for creating a Costume.  
-router.post('/resource/costumes', costume_controller.costume_create_post); 
+// POST request for creating a dog.  
+router.post('/dogs', dog_controller.dog_create_post); 
  
-// DELETE request to delete Costume. 
-router.delete('/resource/costumes/:id', costume_controller.costume_delete); 
+// DELETE request to delete dog. 
+router.delete('/dogs/:id', dog_controller.dog_delete); 
  
-// PUT request to update Costume. 
-router.put('/resource/costumes/:id', 
-costume_controller.costume_update_put); 
+// PUT request to update dog. 
+router.put('/dogs/:id', 
+dog_controller.dog_update_put); 
  
-// GET request for one Costume. 
-router.get('/resource/costumes/:id', costume_controller.costume_detail); 
+// GET request for one dog. 
+router.get('/dogs/:id', dog_controller.dog_detail); 
  
-// GET request for list of all Costume items. 
-router.get('/resource/costumes', costume_controller.costume_list); 
+// GET request for list of all dog items. 
+router.get('/dogs', dog_controller.dog_list); 
  
 module.exports = router; 

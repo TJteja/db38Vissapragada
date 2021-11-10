@@ -11,7 +11,7 @@ mongoose.connect(connectionString,
 {useNewUrlParser: true, 
 useUnifiedTopology: true}); 
 
-var Costume = require("./models/costume"); 
+var Costume = require("./models/dog"); 
 
 async function recreateDB(){ 
   // Delete everything 
