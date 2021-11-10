@@ -3,16 +3,31 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 const connectionString =  
-process.env.MONGO_CON 
+process.env.MONGO_CON;
 mongoose = require('mongoose'); 
 mongoose.connect(connectionString,  
 {useNewUrlParser: true, 
 useUnifiedTopology: true}); 
-var db = mongoose.connection; 
-db.on('error', console.error.bind(console, 'MongoDB connection error:')); 
-db.once("open", function(){  console.log("Connection to DB succeeded")}); 
+
 var Costume = require("./models/costume"); 
+
+async function recreateDB(){ 
+  // Delete everything 
+  await Costume.deleteMany(); 
+ 
+  let instance1 = new 
+Costume({costume_type:"ghost",  size:'large', 
+cost:25.4}); 
+  instance1.save( function(err,doc) { 
+      if(err) return console.error(err); 
+      console.log("First object saved") 
+  }); 
+} 
+ 
+let reseed = true; 
+if (reseed) { recreateDB();}
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -55,19 +70,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-async function recreateDB(){ 
-  // Delete everything 
-  await Costume.deleteMany(); 
- 
-  let instance1 = new 
-Costume({costume_type:"ghost",  size:'large', 
-cost:25.4}); 
-  instance1.save( function(err,doc) { 
-      if(err) return console.error(err); 
-      console.log("First object saved") 
-  }); 
-} 
- 
-let reseed = true; 
-if (reseed) { recreateDB();}
