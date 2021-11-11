@@ -14,7 +14,7 @@ router.get('/', api_controller.api);
 /// dog ROUTES /// 
  
 // POST request for creating a dog.  
-router.post('/dogs', dog_controller.dog_create_post); 
+router.post('/dog', dog_controller.dog_create_post); 
  
 // DELETE request to delete dog. 
 router.delete('/dogs/:id', dog_controller.dog_delete); 
@@ -27,6 +27,6 @@ dog_controller.dog_update_put);
 router.get('/dogs/:id', dog_controller.dog_detail); 
  
 // GET request for list of all dog items. 
-router.get('/dogs', dog_controller.dog_list); 
+router.get('/dog', dog_controller.dog_list); 
  
 module.exports = router; 
