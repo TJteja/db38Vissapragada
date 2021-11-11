@@ -28,11 +28,6 @@ exports.dog_detail = function(req, res) {
     res.send('NOT IMPLEMENTED: dog detail: ' + req.params.id); 
 }; 
  
-// Handle dog create on POST. 
-exports.dog_create_post = function(req, res) { 
-    res.send('NOT IMPLEMENTED: dog create POST'); 
-}; 
- 
 // Handle dog delete form on DELETE. 
 exports.dog_delete = function(req, res) { 
     res.send('NOT IMPLEMENTED: dog delete DELETE ' + req.params.id); 
@@ -50,9 +45,9 @@ exports.dog_create_post = async function(req, res) {
     // Even though bodies can be in many different formats, we will be picky 
     // and require that it be a json object 
     // {"dog_type":"pooch", "price":12, "colour":"white"} 
-    document.dog_type = req.body.dog_type; 
-    document.cost = req.body.cost; 
-    document.size = req.body.size; 
+    document.breed = req.body.breed; 
+    document.price = req.body.price; 
+    document.colour = req.body.colour; 
     try{ 
         let result = await document.save(); 
         res.send(result); 
