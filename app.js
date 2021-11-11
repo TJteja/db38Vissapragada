@@ -11,29 +11,29 @@ mongoose.connect(connectionString,
 {useNewUrlParser: true, 
 useUnifiedTopology: true}); 
 
-var Costume = require("./models/dog"); 
+var Dog = require("./models/dog"); 
 
 async function recreateDB(){ 
   // Delete everything 
-  await Costume.deleteMany(); 
+  await Dog.deleteMany(); 
  
   let instance1 = new 
-Costume({costume_type:"ghost",  size:'large', 
-cost:25.4}); 
+Dog({breed:"ghost",  colour:'large', 
+price:25.4}); 
   instance1.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("First object saved") 
   });
   let instance2 = new 
-  Costume({costume_type:"hoodie",  size:'Medium', 
-  cost:11.4}); 
+  Dog({breed:"hoodie",  colour:'Medium', 
+  price:11.4}); 
     instance2.save( function(err,doc) { 
         if(err) return console.error(err); 
         console.log("Second object saved") 
     }); 
     let instance3 = new 
-Costume({costume_type:"Jacket",  size:'large', 
-cost:250.4}); 
+Dog({breed:"Jacket",  colour:'large', 
+price:250.4}); 
   instance3.save( function(err,doc) { 
       if(err) return console.error(err); 
       console.log("Third object saved") 
