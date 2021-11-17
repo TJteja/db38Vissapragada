@@ -2,26 +2,28 @@ extends layout
  
 block content 
   h1= title 
- 
-  - let index = toShow.index
-  - let breed = toShow.breed
+  if (toShow == null) 
+    h2 No instance to delete 
+  else
+  - let dogid = toShow.id 
+  - let breed = toShow.breed 
   - let price = toShow.price
-  - let colour = toShow.colour 
+  - let colour = toShow.colour
    
   div.row(class='mb-2') 
     div.mr-1 ID is 
-    div #{dogid} 
+    div #{costumeid} 
   - let actionid = "/resource/dog/" + dogid 
   form(id='dogForm', action= actionid, method="PUT") 
     div.form-group 
-        label.dogAttr(for='breed') Breed 
+        label.dogAttr(for='breed') Breed
         input#breed(type='text', name='breed', value= breed ) 
     div.form-group 
-        label.dogAttr(for='size') Price
+        label.dogAttr(for='price') Prize 
         input#size(type='number', name='price', value= price ) 
     div.form-group 
-        label.dogAttr(for='colour') Colour
-        input#cost(type='text', name='colour', value= colour ) 
+        label.dogAttr(for='colour') Colour 
+        input#colour(type='text', name='colour', value= colour ) 
     input(type="submit") 
  
   script. 
@@ -30,9 +32,9 @@ block content
       // TODO do something here to show user that form is being submitted 
       fetch(event.target.action, { 
         method: 'PUT', 
-        body: new URLSearchParams(new FormData(event.target)) 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
       }).then((resp) => { 
-        return resp.json(); // or resp.text() or whatever the server sends 
+        return resp.text(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
         alert("Update succeded") 
         // TODO handle body 
@@ -41,4 +43,3 @@ block content
         alert("Update failed " + error ) 
       }); 
     }); 
- 
