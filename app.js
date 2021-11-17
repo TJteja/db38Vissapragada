@@ -49,7 +49,6 @@ var dogRouter = require('./routes/dog');
 var addmodsRouter = require('./routes/addmods');
 var selectorRouter = require('./routes/selector');
 var resourceRouter = require('./routes/resource');
-
 var app = express();
 
 // view engine setup
