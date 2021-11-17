@@ -1,0 +1,18 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let dogs1 = results1
+   div(class = "container-fluid")
+    div(class = "row")
+     each i,index in dogs1
+       
+        div(class="col-sm-4" onclick=`buy(${index})`) Dog breed is #{i.breed} 
+        br
+        br 
+        div(class="col-sm-4" onclick=`buy(${index})`) Dog price is #{i.price}
+        br
+        br  
+        div(class="col-sm-4" onclick=`buy(${index})`) Dog colour is #{i.colour}
+        script.
