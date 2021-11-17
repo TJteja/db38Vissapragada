@@ -30,7 +30,7 @@ block content
       // TODO do something here to show user that form is being submitted 
       fetch(event.target.action, { 
         method: 'PUT', 
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+        body: new URLSearchParams(new FormData(event.target)) 
       }).then((resp) => { 
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
