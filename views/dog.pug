@@ -4,9 +4,11 @@ block content
   h1= title
   br
   - let dogs = results
+  -let destination1 = `dispatch(\"/dog/update?id=${dogs._id}\")`
    div(class = "container-fluid")
-    div(class = "row")
+    div(class = "row m-1")
      each i,index in dogs
+     
         div(class="col-sm-4" onclick=`buy(${index})`) breed: #{i.breed} 
         br
         br 
@@ -14,8 +16,12 @@ block content
         br
         br  
         div(class="col-sm-4" onclick=`buy(${index})`) colour: #{i.colour}
+            button.btn( class="btn-primary ml-1", onclick= destination) Update 
         script.
                 function buy(itemNo){
                     alert(`You purchased item ${itemNo+1}`)
                 }
+                function dispatch(path){ 
+                window.location.href=path 
+                } 
    
