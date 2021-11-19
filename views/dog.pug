@@ -8,15 +8,9 @@ block content
    div(class = "container-fluid")
     div(class = "row m-1")
      each i,index in dogs
-      -let destination1 = `dispatch(\"/dog/update?id=${i._id}\")`
+      -let destination = `dispatch(\"/dog/update?id=${i._id}\")`
      
-        div(class="col-sm-4" onclick=`buy(${index})`) breed: #{i.breed} 
-        br
-        br 
-        div(class="col-sm-4" onclick=`buy(${index})`) price: #{i.price}
-        br
-        br  
-        div(class="col-sm-4" onclick=`buy(${index})`) colour: #{i.colour}
+        div(class="row-sm-2", class="m-1") Item #{i.breed}(#{i.price}) is #{i.colour} 
             button.btn( class="btn-primary ml-1", onclick= destination) Update 
         script.
                 function buy(itemNo){
