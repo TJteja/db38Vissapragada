@@ -12,7 +12,7 @@ const secured = (req, res, next) => {
 /* GET home page. */
 router.get('/', dog_controllers.dog_view_all_Page);
 /* GET detail dog page */ 
-router.get('/detail', dog_controllers.dog_view_one_Page); 
+router.get('/detail',secured, dog_controllers.dog_view_one_Page); 
 /* GET create costume page */ 
 router.get('/create',secured, dog_controllers.dog_create_Page); 
 /* GET create update page */ 
